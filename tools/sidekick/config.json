@@ -5,7 +5,7 @@
       "title": "Tag Browser",
       "environments": ["da-edit"],
       "daLibrary": true,
-      "url": "https://main--da-helpx--adobecom.hlx.live/tools/tags.html"
+      "url": "http://localhost:3000/tools/tags.html"
     },
     {
       "id": "library",

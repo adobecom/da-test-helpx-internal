@@ -2,6 +2,10 @@
 import { LitElement, html, nothing } from 'https://da.live/nx/deps/lit/lit-core.min.js';
 import getStyle from 'https://da.live/nx/utils/styles.js';
 
+import DA_SDK from 'https://da.live/nx/utils/sdk.js';
+
+const { actions } = await DA_SDK;
+
 const ROOT_TAG_PATH = '/content/cq:tags';
 const TAG_EXT = '.1.json';
 
@@ -42,6 +46,9 @@ class DaTagBrowser extends LitElement {
       return acc;
     }, []);
     this._tags = [...this._tags, tags];
+    setTimeout(() => {
+      window.scrollTo(document.body.scrollWidth, 0);
+    }, 100);
   }
 
   handleTagClick(tag, idx) {
@@ -49,12 +56,17 @@ class DaTagBrowser extends LitElement {
     this.getTags(tag.path);
   }
 
+  handleTagInsert(title) {
+    actions.sendText(title);
+  }
+
   renderTagGroup(group, idx) {
     return html`
       <ul class="da-tag-group-list">
         ${group.map((tag) => html`
-          <li class="da-tag-group" @click=${() => this.handleTagClick(tag, idx)}>
-            ${tag.title}
+          <li class="da-tag-group">
+            <span @click=${() => this.handleTagClick(tag, idx)}>${tag.title}</span>
+            <button @click=${() => { this.handleTagInsert(tag.title); }}>→</button>
           </li>
         `)}
       </ul>
@@ -66,7 +78,7 @@ class DaTagBrowser extends LitElement {
     return html`
       <ul class="da-tag-groups">
         ${this._tags.map((group, idx) => html`
-          <li class="da-tag-group">
+          <li class="da-tag-group-column">
             ${this.renderTagGroup(group, idx)}
           </li>
         `)}
