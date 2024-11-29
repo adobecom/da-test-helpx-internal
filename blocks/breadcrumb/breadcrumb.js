@@ -12,3 +12,4 @@ export default (block) => {
   })
   block.replaceChildren(ul);
 };
+
