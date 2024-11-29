@@ -1,7 +1,44 @@
 export default (block) => {
+  const productAppLink = getProductAppLink(block);
   construct(block);
   init(block);
+  restructureAppLink(productAppLink, block);
 };
+
+function restructureAppLink(productAppLink, block){
+  if(!productAppLink) return;
+  const imageSrc = "https://helpx.adobe.com/content/dam/help/mnemonics/pr_cc_app_RGB.svg";
+  const productHref = productAppLink.querySelector('div > div').children[2].firstChild.getAttribute('href');
+  const product = productAppLink.querySelector('div > div').children[1].firstChild.data;
+
+  const div = document.createElement('div');
+  div.innerHTML = `<div class="productDetails">
+                    <a href="${productHref}" class="productSection">
+                        <img src="${imageSrc}" alt="${product}">
+                    </a>
+                    <div class="productOpenLink">
+                        <p class="productName">
+                            <a href="${productHref}">Premiere Pro</a>
+                        </p>
+                        
+                            <a href="${productHref}" class="openAppSection">
+                                <span class="openAppText">Open app</span>
+                                <span class="openAppIcon"></span>
+                            </a>
+                        
+                    </div>
+                  </div>`;
+  
+  block.insertBefore(div.firstElementChild, block.firstElementChild);
+}
+
+function getProductAppLink(block) {
+  if(block.firstElementChild.querySelector('a').firstChild.data === 'open-app') {
+    const appLink = block.removeChild(block.firstElementChild);
+    return appLink;
+  }
+  return null;
+}
 
 function init(block) {
   const tocParentElement = block.querySelectorAll('li.toclink-label > .parentNode');
@@ -9,37 +46,12 @@ function init(block) {
   const currentPagePath = window.location.pathname;
   setActiveIndicator(currentPagePath, pageNavLink);
   toggleIconAndExpandToc(tocParentElement);
-  expandTOC(block,`.leafNode[href='${currentPagePath}']`);
+  expandTOC(block,`.leafNode[href='${currentPagePath}']` );
 }
 
 function construct(block) {
-  const appDiv = document.querySelector(`div.toc > div > div`);
-  const iconImg = appDiv.querySelector("p > img");
-  const iconPath = iconImg ? iconImg.src : null;
-
-  // Extract the title
-  const titleP = appDiv.querySelectorAll("p")[1];
-  const title = titleP ? titleP.textContent.trim() : null;
-
-  // Extract the link
-  const linkAnchor = appDiv.querySelector("p > a");
-  const link = linkAnchor ? linkAnchor.href : null;
-  
-  const tocList = [...block.querySelector(`div.toc > div:nth-child(2) > div`).children][0];
+  const tocList = [...block.querySelector(`div.toc > div > div`).children][0];
   tocList.classList.add('tocList');
-
-  const newHtml = `
-        <div class="container">
-            <img src="${iconPath}" alt="${title} Icon" class="icon">
-            <div class="content">
-                <p class="title">${title}</p>
-                <p class="link">
-                    <a href="${link}" target="_blank">${link}</a>
-                </p>
-            </div>
-
-        </div>
-    `;
 
   tocList.querySelectorAll('p > a[href]').forEach(anchor => {
     anchor.parentNode.outerHTML = anchor.outerHTML;
