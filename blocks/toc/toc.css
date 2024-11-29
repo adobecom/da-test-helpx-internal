@@ -1,0 +1,114 @@
+
+.toc  p {
+  margin-bottom: .25rem
+}
+
+.toc  li,.toc  ul {
+  list-style-type: none
+}
+
+.toc .toclink-label a {
+  color: #4b4b4b;
+  display: block;
+  margin-left: .75rem
+}
+
+.toc  .toclink-label.hasChildren .parentNode:hover {
+  display: block;
+  background-color: #E6E6E6;
+  border-radius: .25rem;
+  margin-left: -1.75rem;
+  padding-left: 1.813rem
+}
+
+.toc  .tocList>.toclink-label>.parentNode:hover{
+  display: block;
+  background-color: #E6E6E6;
+  border-radius: .25rem;
+  margin-left: -.75rem;
+  padding-left: .813rem
+}
+
+.toc  .tocList>.toclink-label>.tocListItem.children>.noChild:hover {
+  display: block;
+  background-color: #E6E6E6;
+  border-radius: .25rem;
+  margin-left: -.75rem;
+  padding-left: 1.75rem
+}
+
+.toc  .toclink-label .noChild {
+  margin-left: -1.75rem;
+  padding-left: 2.75rem
+}
+
+.toc  .toclink-label .noChild:hover {
+  background-color: #E6E6E6;
+  border-radius: .25rem
+}
+
+.toc  .toclink-label .parentNode,.toc  .toclink-label a {
+  padding-top: .375rem;
+  padding-bottom: .5rem;
+  text-decoration: none;
+}
+
+.toc  li.toclink-label{
+  padding: 0 0 0 .625rem;
+  margin-bottom: .25rem;
+  font-size: .875rem;
+  line-height: 1.125rem
+}
+
+.toc  li.toclink-label .parentNodeIcon{
+  background: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect id='Canvas' width='10' height='10' style='fill:%23ff13dc;fill-opacity:0'/%3E%3Cpath d='M12,9a1,1,0,0,1-.29.7l-4,4a1,1,0,0,1-1.41.13,1,1,0,0,1-.12-1.41l.09-.1,0,0L9.59,9,6.3,5.72A1,1,0,0,1,7.69,4.28l0,0,4,4A1.05,1.05,0,0,1,12,9Z' style='fill:%236e6e6e'/%3E%3C/svg%3E") no-repeat left;
+  content:' ';
+  height: 14px;
+  width: 14px;
+  top: 8px;
+  position: absolute;
+  cursor: pointer
+}
+
+.toc  li.toclink-label .parentNode.expandToc .parentNodeIcon {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg)
+}
+
+.toc  li.toclink-label .parentNodeLabel{
+  padding: 0 .875rem;
+  font-size: .875rem;
+  line-height: 1.125rem
+}
+
+.toc  li.toclink-label .parentNode {
+  padding-left: .05rem;
+  cursor: pointer;
+  display: block;
+  position: relative
+}
+
+.toc  li.toclink-label .parentNode.highlightNode{
+  font-weight: 700
+}
+
+.toc  li.toclink-label .parentNode.expandToc~ul {
+  display: block
+}
+
+.toc  li.toclink-label .parentNode~ul{
+  display: none
+}
+
+.toc  li.toclink-label.is-active {
+  background-color: #E6E6E6;
+  border-radius: .25rem;
+}
+
+.toc  li.toclink-label.is-active:hover {
+  background-color: #d5d5d5
+}
+
+.toc  ul.tocList>li .tocListItem.children{
+  margin-top: .3125rem
+}
