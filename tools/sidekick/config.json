@@ -10,16 +10,12 @@
     {
       "id": "library",
       "title": "Library",
-      "environments": [
-        "edit"
-      ],
+      "environments": ["edit"],
       "isPalette": true,
       "passConfig": true,
       "paletteRect": "top: auto; bottom: 20px; left: 20px; height: 398px; width: 360px;",
       "url": "https://milo.adobe.com/tools/library",
-      "includePaths": [
-        "**.docx**"
-      ]
+      "includePaths": ["**.docx**"]
     },
     {
       "id": "tools",
@@ -30,14 +26,12 @@
       "containerId": "tools",
       "id": "localize",
       "title": "Localize",
-      "environments": [
-        "edit"
-      ],
+      "environments": ["edit"],
       "url": "https://milo.adobe.com/tools/loc/index.html",
       "passReferrer": true,
       "passConfig": true,
-      "excludePaths": [ "/**" ],
-      "includePaths": [ "**/:x**" ]
+      "excludePaths": ["/**"],
+      "includePaths": ["**/:x**"]
     },
     {
       "containerId": "tools",
@@ -45,40 +39,34 @@
       "id": "checkschema",
       "environments": ["prod"],
       "event": "check-schema",
-      "excludePaths": [
-        "/tools**",
-        "*.json"
-      ]
+      "excludePaths": ["/tools**", "*.json"]
     },
     {
       "containerId": "tools",
       "title": "Preflight",
       "id": "preflight",
-      "environments": [
-        "dev",
-        "preview",
-        "live"
-      ],
+      "environments": ["dev", "preview", "live"],
       "event": "preflight"
     },
     {
       "containerId": "tools",
       "id": "locales",
       "title": "Locales",
-      "environments": [
-        "edit",
-        "dev",
-        "preview",
-        "live"
-      ],
+      "environments": ["edit", "dev", "preview", "live"],
       "isPalette": true,
       "passConfig": true,
       "passReferrer": true,
       "paletteRect": "top: auto; bottom: 25px; left: 75px; height: 388px; width: 360px;",
       "url": "https://milo.adobe.com/tools/locale-nav",
-      "includePaths": [
-        "**.docx**"
-      ]
+      "includePaths": ["**.docx**"]
+    }
+  ],
+  "apps": [
+    {
+      "title": "Simplified Authoring",
+      "description": "Simpified Authoring for EDS (Genesis)",
+      "image": "https://raw.githubusercontent.com/adobecom/da-test-helpx-internal/refs/heads/main/simplified_authoring.gif",
+      "url": "https://da.live/app/adobecom/da-test-helpx-internal/tools/simplified-authoring"
     }
   ]
 }
