@@ -67,6 +67,12 @@
       "description": "Simpified Authoring for EDS (Genesis)",
       "image": "https://raw.githubusercontent.com/adobecom/da-test-helpx-internal/refs/heads/main/simplified_authoring.gif",
       "url": "https://da.live/app/adobecom/da-test-helpx-internal/tools/simplified-authoring"
+    },
+    {
+      "title": "DA Playground",
+      "description": "DA SDK Playground for experimentation",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrLs4kYlCnw_zDHmayIhZ3vJHKf97XJ25Nxw&s",
+      "url": "https://da.live/app/adobecom/da-test-helpx-internal/da-playground?ref=local"
     }
   ]
 }
