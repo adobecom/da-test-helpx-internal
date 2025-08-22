@@ -14,7 +14,7 @@ notifications:
       project: MWPW # Project queue in which the security ticket will be created. Can be any valid JIRA project.
       filters:
         include:
-          risk_rating: R5 # Please do not change this unless instructed to do so.
+          risk_rating: R2 # Please do not change this unless instructed to do so.
       fields:
         assignee:
           name: casalino
@@ -23,7 +23,6 @@ notifications:
           value: "Unicorn" # Put your team name here; it must be a valid team in Jira.
         watchers: # Everyone who is an admin on your repository should be a watcher.
           - casalino
-          - jmichnow
           - mauchley
         labels: # You can add additional labels to your tickets here. Do not delete/change the first three.
           - "OriginatingProcess=Kodiak"
